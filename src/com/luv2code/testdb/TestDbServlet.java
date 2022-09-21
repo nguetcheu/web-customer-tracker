@@ -1,6 +1,8 @@
 package com.luv2code.testdb;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,9 +27,26 @@ public class TestDbServlet extends HttpServlet {
 		String pass = "springstudent";
 		
 		String jdbcUrl ="jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&serverTimezone=UTC";
-				
-		// recuperation des variables de connection
+		String driver = "com.mysql.jdbc.Driver";
 		
+		// recuperation des variables de connection
+		try {
+			PrintWriter out = response.getWriter();
+			
+			out.println("Connecting to database: "+ jdbcUrl);
+			
+			Class.forName(driver);
+			
+			Connection myConnection = DriverManager.getConnection(jdbcUrl,user,pass);
+			
+			out.println("SUCCESS!!!");
+			
+			myConnection.close();
+			
+		} catch (Exception exc) {
+			exc.printStackTrace();
+			throw new ServletException(exc);
+		}
 		
 	}
 
