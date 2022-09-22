@@ -27,7 +27,7 @@
 	
 		<div id="content">
 		
-			<!--  add our html table here -->
+			<!--  ajout de la table en html -->
 		
 			<table>
 				<tr>
