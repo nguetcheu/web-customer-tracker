@@ -38,7 +38,7 @@
 				
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCustomer" items="${customers}">
-				
+
 					<tr>
 						<td> ${tempCustomer.firstName} </td>
 						<td> ${tempCustomer.lastName} </td>
@@ -53,7 +53,6 @@
 	
 	</div>
 	
-
 </body>
 
 </html>
